@@ -1,3 +1,4 @@
+-- From book
 CREATE TABLE `email_list` (
   `id` INT AUTO_INCREMENT,
   `first_name` VARCHAR(20),
