@@ -131,12 +131,13 @@
                       break;
                   }
                   $show_shipping_form = true;
-              } 
+              }
             }
           ?>
 
+
           <?php if($show_shipping_form): ?>
-          <h2>Shipping form</h2> 
+          <h2>Shipping form</h2>
           <form class="form-horizontal" action="<?= $form->postTo() ?>" method="post" role="form">
             <fieldset>
             <legend><?= $form->productType() ?></legend>
@@ -151,7 +152,7 @@
           <?php else: ?>
             <h3>Choose a product type to display the shipping form!</h3>
           <?php endif; ?>
-          
+
         </div>
 
         <!-- Footer -->

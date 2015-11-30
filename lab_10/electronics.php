@@ -1,18 +1,35 @@
 <?php
+require_once("products.php");
 class Electronic extends Product
 {
   private $recyclable;
 
+  public function getRecyclable(){
+    return $this->recyclable;
+  }
+
+  public function setRecyclable($value)
+  {
+      if(isset($value) && !empty($value))
+      {
+        $this->recyclable =  "yes";
+      }
+      else
+      {
+        $this->recyclable = "no";
+      }
+  }
+
   public function renderForm()
   {
     $base_form = file_get_contents('forms/generic_form.html');
-    $tool_specific = file_get_contents('forms/electronic_form.html');
-    return $base_form . $tool_specific;
+    $specific = file_get_contents('forms/electronic_form.html');
+    return $base_form . $specific;
   }
 
   public function postTo()
   {
-    return 'ship/electronic.php';
+    return 'shippers/electronic.php';
   }
 
   public function productType()
