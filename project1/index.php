@@ -28,7 +28,7 @@
 
 <body>
 <?php
-    $mysqli = mysqli_connect("localhost", "root", "root", "madlibs");
+    $mysqli = mysqli_connect("localhost", "root", "", "madlibs");
 ?>
 
     <!-- Navigation -->
@@ -125,7 +125,7 @@ if (isset($_POST['submit']))
       $adverb = $_POST['adverb'];
     }
 
-    $story = addslashes("Do you $verb your $adjective $noun $adverb? That's hilarious!");
+    //$story = addslashes("Do you $verb your $adjective $noun $adverb? That's hilarious!");
     
     $query = "INSERT INTO Stories (Story, Noun, Verb, Adjective, Adverb) 
       VALUES ('$story', '$noun', '$verb', '$adjective', '$adverb');";
