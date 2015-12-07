@@ -11,7 +11,7 @@
   for ($i = 0; $i < CAPTCHA_NUMCHARS; $i++) {    $pass_phrase .= chr(rand(97, 122));  }
 
   // Store the encrypted pass-phrase in a session variable
-  $_SESSION['pass_phrase'] = SHA($pass_phrase);
+  $_SESSION['pass_phrase'] = sha1($pass_phrase);
 
   // Create the image  $img = imagecreatetruecolor(CAPTCHA_WIDTH, CAPTCHA_HEIGHT);  // Set a white background with black text and gray graphics  $bg_color = imagecolorallocate($img, 255, 255, 255);     // white  $text_color = imagecolorallocate($img, 0, 0, 0);         // black  $graphic_color = imagecolorallocate($img, 64, 64, 64);   // dark gray
 
@@ -27,7 +27,7 @@
     imagesetpixel($img, rand() % CAPTCHA_WIDTH, rand() % CAPTCHA_HEIGHT, $graphic_color);
   }
   // Draw the pass-phrase string
-  imagettftext($img, 18, 0, 5, CAPTCHA_HEIGHT - 5, $text_color, 'Courier New Bold.ttf', $pass_phrase);
+  imagettftext($img, 18, 0, 5, CAPTCHA_HEIGHT - 5, $text_color, './Courier New Bold.ttf', $pass_phrase);
 
   // Output the image as a PNG using a header  header("Content-type: image/png");  imagepng($img);
 
